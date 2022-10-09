@@ -6,7 +6,8 @@ let click = false;
 document.addEventListener('DOMContentLoaded', function () {
   // creatingBoard (number); for the number of squares by default
   creatingBoard(16);
-
+  draw.innerHTML =
+    'Click reset to make the grid white then click on it to draw';
   // Targeting button drawable or not
   document.querySelector('body').addEventListener('click', function (e) {
     if (e.target.tagName != 'BUTTON') {
@@ -47,14 +48,14 @@ function creatingBoard(size) {
 
 // asking the question for the size
 function getSize() {
-  let input = prompt('Give me a size');
+  let input = prompt('Give me the size you want of the grid');
   let message = document.querySelector('#errorMessage');
   if (input == '') {
-    message.innerHTML = 'please number';
+    message.innerHTML = 'Please put a number, stupido.';
   } else if (input < 0 || input > 100) {
-    message.innerHTML = 'put number between 1 and 100';
+    message.innerHTML = 'Put number between 1 and 100, stupido.';
   } else {
-    message.innerHTML = 'go draw';
+    message.innerHTML = 'The grid is ready';
     return input;
   }
 }
